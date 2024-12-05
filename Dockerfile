@@ -1,6 +1,9 @@
 # Use an official Python runtime as a parent image
 FROM python:3.9-slim
 
+# Set environment variable for Django settings
+ENV PYTHONUNBUFFERED 1
+
 # Set the working directory inside the container
 WORKDIR /app
 
@@ -19,8 +22,7 @@ COPY . /app/
 # Expose the port the app will run on
 EXPOSE 8000
 
-# Set environment variable for Django settings
-ENV PYTHONUNBUFFERED 1
+
 
 # Run Gunicorn to serve the app
 COPY entrypoint.sh /entrypoint.sh
