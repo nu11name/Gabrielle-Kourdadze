@@ -27,10 +27,8 @@ SECRET_KEY = 'django-insecure--(rc@kvb_becy6qa_3r3$&5(=$i#_^*q1^pb%val(@guv)10m^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["lobster-app-fy7pe.ondigitalocean.app"]
-CSRF_TRUSTED_ORIGINS = [
-    "https://lobster-app-fy7pe.ondigitalocean.app"
-]
+ALLOWED_HOSTS = ["https://lobster-app-fy7pe.ondigitalocean.app","lobster-app-fy7pe.ondigitalocean.app","*"]
+CSRF_TRUSTED_ORIGINS = ["https://lobster-app-fy7pe.ondigitalocean.app","lobster-app-fy7pe.ondigitalocean.app","*"]
 # Application definition
 
 INSTALLED_APPS = [
