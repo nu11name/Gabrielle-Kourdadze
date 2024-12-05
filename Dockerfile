@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install Python dependencies
 COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # Copy the current directory contents into the container
 COPY . /app/
@@ -20,9 +20,10 @@ COPY . /app/
 EXPOSE 8000
 
 # Set environment variable for Django settings
-ENV PYTHONUNBUFFERED 1
 
-# Run Gunicorn to serve the app
-COPY entrypoint.sh /entrypoint.sh
-RUN ["chmod", "+x", "/entrypoint.sh"]
-ENTRYPOINT [ "/bin/sh", "-c", "/entrypoint.sh" ]
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+
+# Set the entrypoint to start the Django app
+CMD ["gunicorn", "Gabrielle_Kourdadze.wsgi:application", "--bind", "0.0.0.0:8000"]
