@@ -2,12 +2,15 @@ version: "3.9"
 
 services:
   web:
+    container_name: web-landing
     build: .
-    command: gunicorn Gabrielle_Kourdadze.wsgi:application --bind 0.0.0.0:8000
     ports:
       - "8000:8000"
     env_file:
       - .env
     volumes:
-      - .:/app
-      - ./db.sqlite3:/app/db.sqlite3
+      - .:/local
+    entrypoint: ""
+    command: bash -c "python manage.py makemigrations &&
+                      python manage.py migrate --noinput &&
+                      python manage.py runserver 0.0.0.0:8000"

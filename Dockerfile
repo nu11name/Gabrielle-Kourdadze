@@ -1,29 +1,43 @@
-# Use an official Python runtime as a parent image
-FROM python:3.9-slim
+FROM python:3.11-slim
 
-# Set the working directory inside the container
-WORKDIR /app
+ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1 \
+#  Python
+    PYTHONFAULTHANDLER=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONHASHSEED=random \
+# pip:
+    PIP_NO_CACHE_DIR=off \
+    PIP_DISABLE_PIP_VERSION_CHECK=on \
+    PIP_DEFAULT_TIMEOUT=100
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    libpq-dev \
-    && rm -rf /var/lib/apt/lists/*
+# Prepare system
+RUN apt-get update \
+    && apt-get install \
+      --no-install-recommends --no-install-suggests -y \
+      gettext \
+      build-essential \
+      zlib1g-dev \
+      libjpeg-dev \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get autoremove -y \
+    && apt-get clean \
+    && mkdir /local \
+    && addgroup --gid 4000 user-m \
+    && adduser --system --disabled-password --disabled-login --gecos "" --gid 4000 --uid 4000 user-m \
+    && chown -R user-m:user-m /local \
+    && chsh -s /bin/false user-m
 
-# Install Python dependencies
-COPY requirements.txt /app/
-RUN pip install --upgrade pip && pip install -r requirements.txt
+# Install python environment and requirements
+COPY --chown=user-m:user-m requirements.txt /local/requirements.txt
+RUN pip install --upgrade pip
+WORKDIR /local
+RUN pip install -r requirements.txt
 
-# Copy the current directory contents into the container
-COPY . /app/
-
-# Expose the port the app will run on
+# Add application code
+COPY --chown=user-m:user-m . /local
 EXPOSE 8000
+WORKDIR /local
+COPY entrypoint.sh /entrypoint.sh
 
-# Set environment variable for Django settings
-
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-
-
-# Set the entrypoint to start the Django app
-CMD ["gunicorn", "Gabrielle_Kourdadze.wsgi:application", "--bind", "0.0.0.0:8000"]
+RUN ["chmod", "+x", "/entrypoint.sh"]
+ENTRYPOINT [ "/bin/sh", "-c", "/entrypoint.sh" ]
