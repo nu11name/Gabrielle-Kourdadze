@@ -1,0 +1,91 @@
+{% load static %}
+{% include 'gallery/nav.html' %}
+
+
+            <div class="kleanity-page-wrapper" id="kleanity-page-wrapper">
+                <div class="gdlr-core-page-builder-body" style="margin-top: 100px;">
+                    <div class="slider-container">
+                        <div class="slider">
+                            <!-- Left Arrow -->
+                            <button class="arrow arrow-left" aria-label="Previous Slide"></button>
+            
+                            <div class="slides">
+                                <img src="{% static 'upload/slider_1.jpg' %}" alt="Image 1">
+                                <img src="{% static 'upload/slider_2.jpg' %}" alt="Image 1">
+                                <img src="{% static 'upload/slider_3.jpg' %}" alt="Image 1">
+                                <img src="{% static 'upload/slider_4.JPG' %}" alt="Image 1">
+                                <img src="{% static 'upload/slider_5.JPG' %}" alt="Image 1">
+                                <img src="{% static 'upload/slider_6.jpg' %}" alt="Image 1">
+                            </div>
+            
+                            <!-- Right Arrow -->
+                            <button class="arrow arrow-right" aria-label="Next Slide"></button>
+                            <!-- Navigation Dots -->
+                            <div style="margin-bottom: -10px;" class="dots"></div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+
+<script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const slides = document.querySelectorAll(".slides img");
+        const dotsContainer = document.querySelector(".dots");
+        const leftArrow = document.querySelector(".arrow-left");
+        const rightArrow = document.querySelector(".arrow-right");
+        let currentSlide = 0;
+
+        // Create navigation dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement("button");
+            if (index === currentSlide) dot.classList.add("active");
+            dotsContainer.appendChild(dot);
+            dot.addEventListener("click", () => {
+            currentSlide = index;
+            updateSlider();
+            });
+        });
+
+        const dots = dotsContainer.querySelectorAll("button");
+
+        function updateSlider() {
+            slides.forEach((slide, index) => {
+            slide.classList.remove("active");
+            if (index === currentSlide) {
+                slide.classList.add("active");
+            }
+            });
+            dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }
+
+        function previousSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
+
+        // Show the first slide
+        updateSlider();
+
+        // Automatically change slide every 3 seconds
+        const autoSlide = setInterval(nextSlide, 5000);
+
+        // Navigate using arrows
+        rightArrow.addEventListener("click", () => {
+            nextSlide();
+            clearInterval(autoSlide); // Stop auto-slide when user interacts
+        });
+
+        leftArrow.addEventListener("click", () => {
+            previousSlide();
+            clearInterval(autoSlide); // Stop auto-slide when user interacts
+        });
+        });
+    </script>
+{% include 'gallery/footer.html' %}

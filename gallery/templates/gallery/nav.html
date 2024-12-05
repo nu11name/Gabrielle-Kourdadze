@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Gabrielle Kourdadzé</title>
+
+    <link rel='stylesheet'  type='text/css' media='all' href="{% static 'css/google-fonts.css'%}"/>
+    <link rel='stylesheet'  type='text/css' media='all' href="{% static 'css/settings.css'%}"/>
+    <link rel='stylesheet'  type='text/css' media='all' href="{% static 'css/style-core.css'%}" />
+    <link rel='stylesheet'  type='text/css' media='all' href="{% static 'css/kleanity-style-custom.css'%}"/>
+    <link rel='stylesheet'  type='text/css' media='all' href="{% static 'css/combine.css'%}"/>
+    <link rel='stylesheet'  type='text/css' media='all' href="{% static 'css/page-builder.css'%}"/>
+
+    <link rel='stylesheet'  type='text/css' media='all' href="{% static 'css/font-awesome.css'%}"/>
+
+</head>
+
+<body data-rsssl=1
+    class="home page-template-default page page-id-2039 gdlr-core-body woocommerce-no-js kleanity-body kleanity-body-front kleanity-full  kleanity-with-sticky-navigation gdlr-core-link-to-lightbox">
+    <div class="kleanity-mobile-header-wrap">
+        <div class="kleanity-mobile-header kleanity-header-background kleanity-style-slide" id="kleanity-mobile-header">
+            <div class="kleanity-mobile-header-container kleanity-container">
+                <div class="kleanity-logo  kleanity-item-pdlr">
+                    <div class="kleanity-logo-inner">
+                        <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="" /></a>
+                    </div>
+                </div>
+                <div class="kleanity-mobile-menu-right">
+                    <div class="kleanity-mobile-menu"><a
+                            class="kleanity-mm-menu-button kleanity-mobile-menu-button kleanity-mobile-button-hamburger-with-border"
+                            href="#kleanity-mobile-menu"><i class="fa fa-bars"></i></a>
+                        <div class="kleanity-mm-menu-wrap kleanity-navigation-font" id="kleanity-mobile-menu"
+                            data-slide="right">
+                            <ul id="menu-main-navigation" class="m-menu">
+                                <li class="menu-item menu-item-home current-menu-item"><a href="{% url 'index' %}">Home</a>
+                                </li>
+                                <li class="menu-item menu-item-has-children"><a href="{% url 'paintings' %}">Work</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item"><a href="{% url 'paintings' %}">Paintings</a></li>
+                                        <li class="menu-item"><a href="{% url 'works_on_paper' %}">Works on paper</a></li>
+                                        <li class="menu-item"><a href="{% url 'video' %}">Sound / Videos</a></li>
+                                        <li class="menu-item"><a href="{% url 'exhibitions_view' %}">Exhibition views</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item menu-item-has-children"><a href="{% url 'bio' %}">About</a>
+                                    <ul class="sub-menu">
+                                        <li class="menu-item"><a href="{% url 'coming_soon' %}">News</a></li>
+                                        <li class="menu-item"><a href="{% url 'texts_publications_en' %}">Texts / Publications</a></li>
+                                        <li class="menu-item"><a href="{% url 'bio' %}">Bio</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item"><a href="{% url 'contact' %}">contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="kleanity-body-outer-wrapper ">
+        <div class="kleanity-body-wrapper clearfix  kleanity-with-transparent-header kleanity-with-frame">
+            <div class="kleanity-header-background-transparent">
+                <header
+                    class="kleanity-header-wrap kleanity-header-style-plain  kleanity-style-menu-right kleanity-sticky-navigation kleanity-style-slide">
+                    <div class="kleanity-header-background"></div>
+                    <div class="kleanity-header-container  kleanity-header-full">
+                        <div class="kleanity-header-container-inner clearfix">
+                            <div class="kleanity-logo  kleanity-item-pdlr">
+                                <div class="kleanity-logo-inner">
+                                    <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="" /></a>
+                                </div>
+                            </div>
+                            <div class="kleanity-navigation kleanity-item-pdlr clearfix ">
+                                <div class="kleanity-main-menu" id="kleanity-main-menu">
+                                    <ul id="menu-main-navigation-1" class="sf-menu">
+                                        <li
+                                            class="menu-item menu-item-home current-menu-item menu-item-has-children kleanity-normal-menu">
+                                            <a href="{% url 'index' %}" class="sf-with-ul-pre">Home</a></li>
+                                        <li class="menu-item menu-item-has-children kleanity-normal-menu"><a href="{% url 'paintings' %}"
+                                                class="sf-with-ul-pre">Work</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item" data-size="60"><a
+                                                        href="{% url 'paintings' %}">Paintings</a></li>
+                                                <li class="menu-item" data-size="60"><a href="{% url 'works_on_paper' %}">Works
+                                                        on paper</a></li>
+                                                <li class="menu-item" data-size="60"><a href="{% url 'video' %}">Sound / Videos</a></li>
+                                                <li class="menu-item" data-size="60"><a
+                                                        href="{% url 'exhibitions_view' %}">Exhibition views</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children kleanity-normal-menu"><a href="{% url 'bio' %}"
+                                                class="sf-with-ul-pre">About</a>
+                                            <ul class="sub-menu">
+                                                <li class="menu-item" data-size="60"><a
+                                                        href="{% url 'coming_soon' %}">News</a></li>
+                                                <li class="menu-item" data-size="60"><a href="{% url 'texts_publications_en' %}">Texts /
+                                                        Publications</a></li>
+                                                <li class="menu-item" data-size="60"><a href="{% url 'bio' %}">Bio</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="menu-item menu-item-has-children kleanity-mega-menu"><a
+                                                href="{% url 'contact' %}" class="sf-with-ul-pre">Contact</a>
+                                        </li>
+                                    </ul>
+                                    <div class="kleanity-navigation-slide-bar" id="kleanity-navigation-slide-bar"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            </div>

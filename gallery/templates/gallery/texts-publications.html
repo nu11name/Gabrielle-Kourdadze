@@ -1,0 +1,99 @@
+{% load static %}
+{% include 'gallery/nav.html' %}
+
+            <div class="kleanity-page-title-wrap  kleanity-style-medium kleanity-center-align">
+                <div class="kleanity-header-transparent-substitute"></div>
+                <div class="kleanity-page-title-overlay"></div>
+                <div class="kleanity-page-title-container kleanity-container">
+                    <div class="kleanity-page-title-content kleanity-item-pdlr">
+                        <h1 class="kleanity-page-title">Texts / Publications</h1>
+                    </div>
+                </div>
+            </div>
+
+
+            
+            
+            <div class="kleanity-page-wrapper" id="kleanity-page-wrapper">
+                <div class="gdlr-core-page-builder-body">
+                    <div class="gdlr-core-pbf-wrapper ">
+                        <div class="gdlr-core-pbf-wrapper-content gdlr-core-js ">
+
+
+
+                            <div class="filter1 gdlr-core-filterer-wrap gdlr-core-js  gdlr-core-item-pdlr gdlr-core-style-text gdlr-core-center-align clearfix">
+                                <ul class="filter-list">
+                                    <li class="active">
+                                        <a style="font-size: 17px; color: #333333;">Languages:</a> <span class="kleanity-separater"></span>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'texts_publications_en' %}" style="font-size: 17px; color: #333333;">English /</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'texts_publications_fr' %}" style="font-size: 17px;">French</a> <span class="kleanity-separater"></span>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            {% for text in texts_publications %}
+
+                            <div class="gdlr-core-pbf-wrapper-container clearfix gdlr-core-container">
+                                <div class="gdlr-core-pbf-element">
+                                    <div class="gdlr-core-title-item gdlr-core-item-pdb clearfix  gdlr-core-left-align gdlr-core-title-item-caption-top gdlr-core-item-pdlr" style="padding-bottom: 50px;"><span class="gdlr-core-title-item-caption gdlr-core-info-font gdlr-core-skin-caption">{{ text.subtitle_en }}</span>
+                                        <div class="gdlr-core-title-item-title-wrap ">
+                                            <h2 class="gdlr-core-title-item-title gdlr-core-skin-title " style="font-size: 33px;">{{ text.title_en }}<span class="gdlr-core-title-item-title-divider gdlr-core-skin-divider"></span></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gdlr-core-pbf-element">
+                                    <div class="gdlr-core-text-box-item gdlr-core-item-pdlr gdlr-core-item-pdb gdlr-core-left-align">
+                                        <div class="gdlr-core-text-box-item-content">
+                                            <p>{{ text.publication_en }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% endfor %}
+
+
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="kleanity-page-wrapper" id="kleanity-page-wrapper">
+                <div class="gdlr-core-page-builder-body">
+                    <div class="gdlr-core-pbf-section">
+                        <div class="gdlr-core-pbf-section-container gdlr-core-container clearfix">
+                            <div class="gdlr-core-pbf-element">
+                                <div class="gdlr-core-portfolio-item gdlr-core-item-pdb clearfix  gdlr-core-portfolio-item-style-medium" style="padding-bottom: 40px;">
+                                    <div class="gdlr-core-portfolio-item-holder gdlr-core-js-2 clearfix" data-layout="fitrows">
+                                        <div class="gdlr-core-item-list gdlr-core-portfolio-medium  gdlr-core-size-small gdlr-core-style-right gdlr-core-item-pdlr">
+                                            <div class="gdlr-core-portfolio-content-wrap" style="width: 40%;">
+                                                <h2 class="gdlr-core-portfolio-title gdlr-core-skin-title" style="font-size: 30px;font-weight: 700;letter-spacing: 0px;text-transform: none;"><a href="#">"Behind the scenes of creation", Thais Despont, 2024</a></h2></span>
+                                                <div class="gdlr-core-portfolio-content" style="padding-top: 10px; font-weight: 200;">Documentary Webseries, 10 x 4min episodes</div>
+                                                <div class="gdlr-core-portfolio-content">This webseries explores the daily life of women artists; their work, their doubts,
+                                                    their successes. It was shot entirely in vertical, in the form of very short episodes,
+                                                    destined to be shared as reels on Instagram.</div>
+                                            </div>
+                                            <div class="gdlr-core-portfolio-thumbnail-wrap" style="width: 60%;">
+                                                <div class="gdlr-core-portfolio-thumbnail gdlr-core-media-image  gdlr-core-style-margin-icon">
+                                                    <div class="gdlr-core-portfolio-thumbnail-image-wrap  gdlr-core-zoom-on-hover"><a class="gdlr-core-ilightbox gdlr-core-js " href="{% static 'upload/En coulisses de la création.mp4' %}" data-caption="En coulisses de la création" data-ilightbox-group="gdlr-core-img-group-1"><img src="{% static 'upload/video-thumbnail-2.JPG' %}" width="1800" height="1080" alt=""><span class="gdlr-core-image-overlay  gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js"><span class="gdlr-core-image-overlay-content"><span class="gdlr-core-portfolio-icon-wrap"><i class="fa fa-play" style="font-size:34px"></i></span></span></span></a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% include 'gallery/footer.html' %}
