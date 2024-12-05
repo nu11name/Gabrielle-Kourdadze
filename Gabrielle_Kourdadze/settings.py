@@ -28,7 +28,9 @@ SECRET_KEY = 'django-insecure--(rc@kvb_becy6qa_3r3$&5(=$i#_^*q1^pb%val(@guv)10m^
 DEBUG = True
 
 ALLOWED_HOSTS = ["*", '.ondigitalocean.app']
-
+CSRF_TRUSTED_ORIGINS = ["*", '.ondigitalocean.app']
+CSRF_ALLOWED_ORIGINS = ["*", '.ondigitalocean.app']
+CORS_ORIGINS_WHITELIST = ["*", '.ondigitalocean.app']
 
 # Application definition
 
