@@ -22,5 +22,5 @@ EXPOSE 8000
 # Set environment variable for Django settings
 ENV PYTHONUNBUFFERED 1
 
-# Run Django's development server
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Run Gunicorn to serve the app
+CMD ["gunicorn", "Gabrielle_Kourdadze.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]
