@@ -23,4 +23,6 @@ EXPOSE 8000
 ENV PYTHONUNBUFFERED 1
 
 # Run Gunicorn to serve the app
-CMD ["gunicorn", "Gabrielle_Kourdadze.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]
+COPY entrypoint.sh /entrypoint.sh
+RUN ["chmod", "+x", "/entrypoint.sh"]
+ENTRYPOINT [ "/bin/sh", "-c", "/entrypoint.sh" ]
