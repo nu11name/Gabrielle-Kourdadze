@@ -27,6 +27,10 @@ SECRET_KEY = 'django-insecure--(rc@kvb_becy6qa_3r3$&5(=$i#_^*q1^pb%val(@guv)10m^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CSRF_COOKIE_SECURE = True
+
+CSRF_USE_SESSIONS = True
+
 ALLOWED_HOSTS = ["lobster-app-fy7pe.ondigitalocean.app", "*"]
 
 
