@@ -30,6 +30,11 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 
+CSRF_TRUSTED_ORIGINS = ['https://lobster-app-fy7pe.ondigitalocean.app/','https://127.0.0.1']
+
+
+CSRF_COOKIE_SECURE = False
+
 # Application definition
 
 INSTALLED_APPS = [
