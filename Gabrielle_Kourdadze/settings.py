@@ -31,11 +31,13 @@ CSRF_COOKIE_SECURE = True
 
 CSRF_USE_SESSIONS = True
 
-ALLOWED_HOSTS = ["lobster-app-fy7pe.ondigitalocean.app", "*"]
+ALLOWED_HOSTS = ["lobster-app-fy7pe.ondigitalocean.app", "127.0.0.1", "localhost"]
 
 
-CSRF_TRUSTED_ORIGINS = ['https://lobster-app-fy7pe.ondigitalocean.app/','https://127.0.0.1']
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://lobster-app-fy7pe.ondigitalocean.app",
+    "https://127.0.0.1"
+]
 
 # Application definition
 
