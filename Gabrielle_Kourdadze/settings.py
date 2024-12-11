@@ -31,13 +31,12 @@ CSRF_COOKIE_SECURE = True
 
 CSRF_USE_SESSIONS = True
 
-ALLOWED_HOSTS = ["gabriellekourdadze.com", "www.gabriellekourdadze.com/", "http://www.gabriellekourdadze.com/", "lobster-app-fy7pe.ondigitalocean.app", "127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["gabriellekourdadze.com", "www.gabriellekourdadze.com", "http://www.gabriellekourdadze.com", "lobster-app-fy7pe.ondigitalocean.app", "127.0.0.1", "localhost"]
 
 
 CSRF_TRUSTED_ORIGINS = [
-    "gabriellekourdadze.com",
-    "www.gabriellekourdadze.com/",
-    "http://www.gabriellekourdadze.com/",
+    "https://www.gabriellekourdadze.com",
+    "http://www.gabriellekourdadze.com",
     "https://lobster-app-fy7pe.ondigitalocean.app",
     "https://127.0.0.1"
 ]
