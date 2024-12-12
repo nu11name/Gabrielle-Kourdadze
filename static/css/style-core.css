@@ -1474,6 +1474,103 @@ body .kleanity-footer-wrapper .gdlr-core-recent-portfolio-widget{ max-width: 70p
 	}
   }
 
+
+.custom-gallery {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;  /* Adjust the gap between items */
+	justify-content: flex-start;
+	padding: 0 40px; /* Add padding only left and right */
+	margin-top: 0;  /* Remove top margin */
+	margin-bottom: 0;  /* Remove bottom margin */
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.custom-popup {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.popup-content {
+	text-align: center;
+	max-width: 80%;
+	max-height: 80%;
+	position: relative;
+}
+
+.custom-popup img {
+	max-width: 90%;  /* Limit the max width */
+	max-height: 70vh;  /* Limit the max height */
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.custom-popup .popup-description {
+	color: white;
+	font-size: 1rem;
+	margin-top: 20px;
+	display: none;
+}
+
+.custom-popup .controls {
+	position: absolute;
+	top: 50%;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	transform: translateY(-50%);
+}
+
+.custom-popup .controls button {
+	background: none;
+	border: none;
+	color: white;
+	font-size: 2rem;
+	cursor: pointer;
+	padding: 10px;
+	user-select: none;
+}
+
+.custom-popup .controls button:hover {
+	color: #ff4081;
+}
+
+.custom-popup .close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background: none;
+	border: none;
+	color: white;
+	font-size: 2rem;
+	cursor: pointer;
+}
+
+.custom-popup .close:hover {
+	color: #ff4081;
+}
+
+@media (max-width: 900px) {
+    .custom-gallery {
+        column-count: 2; /* Reduce to 2 columns for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .custom-gallery {
+        column-count: 1; /* Use 1 column for very small screens */
+    }
+}
+
+
 h1{
 	font-family: 'Didot-Title' !important;
 }

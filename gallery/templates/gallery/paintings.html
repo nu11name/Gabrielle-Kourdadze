@@ -20,32 +20,50 @@
 
 
                                         <div class="filter-container gdlr-core-portfolio-item-holder gdlr-core-js-2 clearfix" data-layout="masonry">
+
                                             {% for painting in paintings %}
-                                                <div style=" margin-bottom: 60px; " class="gdlr-core-item-list class1 gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-20 gdlr-core-column-first">
-                                                    <div class="gdlr-core-portfolio-metro">
-                                                        <div class="gdlr-core-portfolio-thumbnail gdlr-core-media-image  gdlr-core-style-icon-title-tag">
-                                                            <div class="gdlr-core-portfolio-thumbnail-image-wrap  gdlr-core-zoom-on-hover">
-                                                                <a class="gdlr-core-ilightbox gdlr-core-js " href="{{ painting.image.url }}" data-caption="{{ painting.description }}"
-                                                                    data-ilightbox-group="gdlr-core-img-group-1">
-                                                                    <img src="{{ painting.thumbnail.url }} " width="700" height="660" alt=""><span
-                                                                        class="gdlr-core-image-overlay  gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js">
-                                                                        <span class="gdlr-core-image-overlay-content">
-                                                                            <span class="gdlr-core-portfolio-icon-wrap">
-                                                                                <i class="gdlr-core-portfolio-icon arrow_expand"></i>
-                                                                            </span>
-                                                                            <span class="gdlr-core-portfolio-title gdlr-core-title-font"
-                                                                                style="font-size: 19px;font-weight: 600;letter-spacing: 0px;text-transform: none;">
-                                                                                <p>{{ painting.title }}</p>
-                                                                            </span>
+
+                                            <div style=" margin-bottom: 60px; " class="gdlr-core-item-list gdlr-core-item-pdlr gdlr-core-item-mgb gdlr-core-column-20 gdlr-core-column-first" >
+                                                <div class="gdlr-core-portfolio-metro">
+                                                    <div class="gdlr-core-portfolio-thumbnail gdlr-core-media-image  gdlr-core-style-icon-title-tag">
+                                                        <div class="gdlr-core-portfolio-thumbnail-image-wrap  gdlr-core-zoom-on-hover">
+                                                            <a class="gdlr-core-ilightbox gdlr-core-js gallery-item "data-large="{{ painting.image.url }}" data-description="{{ painting.description }}">
+                                                                <img src="{{ painting.thumbnail.url }}" width="700" height="660" alt=""><span
+                                                                    class="gdlr-core-image-overlay  gdlr-core-portfolio-overlay gdlr-core-image-overlay-center-icon gdlr-core-js" style="cursor: pointer;">
+                                                                    <span class="gdlr-core-image-overlay-content" style="top: 20%;">
+                                                                        <span class="gdlr-core-portfolio-icon-wrap">
+                                                                            <i class="gdlr-core-portfolio-icon arrow_expand"></i>
+                                                                        </span>
+                                                                        <span class="gdlr-core-portfolio-title gdlr-core-title-font"
+                                                                            style="font-size: 16px;font-weight: 600;letter-spacing: 0px;text-transform: none;">
+                                                                            <p>{{ painting.title }}</p>
                                                                         </span>
                                                                     </span>
-                                                                </a>
-                                                            </div>
+                                                                </span>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+
                                             {% endfor %}
+
+                                            <div class="custom-popup" id="customPopup">
+                                                <button style=" margin-top: 60px; margin-right: 60px; font-size: 40px; " class="close" id="customClose">&times;</button>
+                                                <div class="controls">
+                                                    <button style=" margin-left: 20px; " id="customPrev">&#10094;</button>
+                                                    <button style=" margin-right: 20px; " id="customNext">&#10095;</button>
+                                                </div>
+                                                <div class="popup-content">
+                                                    <img src="" alt="Popup Image" id="customPopupImage">
+                                                    <div class="popup-description" id="customPopupDescription"></div>
+                                                </div>
+                                            </div>
                                         </div>
+
+
+
+
                                     </div>
                                 </div>
                             </div>

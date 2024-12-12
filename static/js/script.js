@@ -495,3 +495,47 @@ $(document).on('ready',function($) {
 	})();
 
 });
+
+
+const customGallery = document.querySelectorAll('.gallery-item');
+const customPopup = document.getElementById('customPopup');
+const customPopupImage = document.getElementById('customPopupImage');
+const customPopupDescription = document.getElementById('customPopupDescription');
+const customClose = document.getElementById('customClose');
+const customPrev = document.getElementById('customPrev');
+const customNext = document.getElementById('customNext');
+let customCurrentIndex = 0;
+
+const updateCustomPopupImage = () => {
+    customPopupImage.src = customGallery[customCurrentIndex].dataset.large;
+    customPopupDescription.textContent = customGallery[customCurrentIndex].dataset.description;
+    customPopupDescription.style.display = 'block';  // Show description when image is opened
+};
+
+customGallery.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        customCurrentIndex = index;
+        updateCustomPopupImage();
+        customPopup.style.display = 'flex';
+    });
+});
+
+customClose.addEventListener('click', () => {
+    customPopup.style.display = 'none';
+});
+
+customPrev.addEventListener('click', () => {
+    customCurrentIndex = (customCurrentIndex - 1 + customGallery.length) % customGallery.length;
+    updateCustomPopupImage();
+});
+
+customNext.addEventListener('click', () => {
+    customCurrentIndex = (customCurrentIndex + 1) % customGallery.length;
+    updateCustomPopupImage();
+});
+
+customPopup.addEventListener('click', (e) => {
+    if (e.target === customPopup) {
+        customPopup.style.display = 'none';
+    }
+});

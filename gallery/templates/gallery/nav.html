@@ -33,7 +33,7 @@
                     <div class="kleanity-mobile-menu"><a
                             class="kleanity-mm-menu-button kleanity-mobile-menu-button kleanity-mobile-button-hamburger-with-border"
                             href="#kleanity-mobile-menu"><i class="fa fa-bars"></i></a>
-                        <div class="kleanity-mm-menu-wrap kleanity-navigation-font" id="kleanity-mobile-menu"
+                        <div style=" z-index: 99999; " class="kleanity-mm-menu-wrap kleanity-navigation-font" id="kleanity-mobile-menu"
                             data-slide="right">
                             <ul id="menu-main-navigation" class="m-menu">
                                 <li class="menu-item menu-item-home current-menu-item"><a href="{% url 'index' %}">Home</a>
@@ -80,7 +80,7 @@
                                         <li
                                             class="menu-item menu-item-home current-menu-item menu-item-has-children kleanity-normal-menu">
                                             <a href="{% url 'index' %}" class="sf-with-ul-pre">Home</a></li>
-                                        <li class="menu-item menu-item-has-children kleanity-normal-menu"><a href="{% url 'paintings' %}"
+                                        <li class="menu-item menu-item-has-children kleanity-normal-menu current-menu-item"><a href="{% url 'paintings' %}"
                                                 class="sf-with-ul-pre">Work</a>
                                             <ul class="sub-menu">
                                                 <li class="menu-item" data-size="60"><a
@@ -92,7 +92,7 @@
                                                         href="{% url 'exhibitions_view' %}">Exhibition views</a></li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item menu-item-has-children kleanity-normal-menu"><a href="{% url 'bio' %}"
+                                        <li class="menu-item menu-item-has-children kleanity-normal-menu current-menu-item"><a href="{% url 'bio' %}"
                                                 class="sf-with-ul-pre">About</a>
                                             <ul class="sub-menu">
                                                 <li class="menu-item" data-size="60"><a
@@ -102,7 +102,7 @@
                                                 <li class="menu-item" data-size="60"><a href="{% url 'bio' %}">Bio</a></li>
                                             </ul>
                                         </li>
-                                        <li class="menu-item menu-item-has-children kleanity-mega-menu"><a
+                                        <li class="menu-item menu-item-has-children kleanity-mega-menu current-menu-item"><a
                                                 href="{% url 'contact' %}" class="sf-with-ul-pre">Contact</a>
                                         </li>
                                     </ul>
